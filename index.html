@@ -9,8 +9,8 @@
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
         :root {
-            --primary-blue: #0C2FF1;   /* 메인: 신뢰, 강력함 */
-            --accent-pink: #FF80AB;    /* 포인트: 10% 사용 (강조) */
+            --primary-blue: #0C2FF1;   /* 메인 컬러 */
+            --accent-pink: #FF80AB;    /* 포인트 컬러 (10%) */
             --bg-white: #FFFFFF;
             --text-main: #111111;
             --text-sub: #555555;
@@ -22,8 +22,9 @@
             font-family: 'Pretendard', sans-serif;
             background-color: var(--bg-white);
             color: var(--text-main);
-            overflow-x: hidden;
+            overflow-x: hidden; /* 가로 스크롤 방지 */
             line-height: 1.5;
+            word-break: keep-all; /* 한글 줄바꿈 최적화 */
         }
 
         /* [레이아웃 유틸리티] */
@@ -36,7 +37,7 @@
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         
-        /* [장식 요소] 십자가 패턴 (+), 핑크 포인트 최소화 */
+        /* [장식 요소] 십자가 패턴 */
         .plus-deco {
             position: absolute;
             color: var(--primary-blue);
@@ -49,7 +50,7 @@
 
         /* [헤더] */
         header {
-            padding: 40px 0;
+            padding: 30px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -62,7 +63,6 @@
             letter-spacing: -1px;
             position: relative;
         }
-        /* 로고 옆 핑크 점 (작은 포인트) */
         .logo::after {
             content: '';
             display: block;
@@ -84,18 +84,17 @@
         .section-num {
             font-size: 5rem;
             font-weight: 900;
-            color: #f0f0f0; /* 배경에 묻히는 큰 숫자 */
+            color: #f0f0f0; 
             line-height: 1;
             margin-left: -5px;
         }
         .section-title {
             font-size: 3rem;
             font-weight: 800;
-            margin-top: -40px; /* 숫자 위로 겹치기 */
+            margin-top: -40px;
             margin-left: 20px;
             position: relative;
         }
-        /* 타이틀 밑줄 (핑크 포인트) */
         .section-title::after {
             content: '';
             display: block;
@@ -105,18 +104,18 @@
             margin-top: 10px;
         }
 
-        /* [HERO 섹션] 매거진 표지 스타일 유지 */
+        /* [HERO 섹션] */
         .hero {
-            padding: 80px 0 150px;
+            padding: 60px 0 150px;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr; /* 텍스트 강조 */
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 50px;
             align-items: center;
             position: relative;
         }
         .hero-text h1 {
             font-size: 4.5rem;
-            line-height: 1;
+            line-height: 1.1;
             font-weight: 900;
             margin-bottom: 30px;
             letter-spacing: -2px;
@@ -126,7 +125,7 @@
             font-size: 1.1rem;
             color: var(--text-sub);
             max-width: 450px;
-            border-left: 4px solid var(--primary-blue); /* 블루 라인 */
+            border-left: 4px solid var(--primary-blue);
             padding-left: 20px;
             margin-bottom: 40px;
         }
@@ -136,7 +135,6 @@
             height: 550px;
             background: #eee;
         }
-        /* 플로팅 박스 디자인 (기존 유지) */
         .floating-box {
             position: absolute;
             bottom: 40px;
@@ -145,11 +143,11 @@
             color: white;
             padding: 30px;
             width: 240px;
-            box-shadow: 20px 20px 0 rgba(255, 128, 171, 0.4); /* 핑크 그림자 포인트 */
+            box-shadow: 20px 20px 0 rgba(255, 128, 171, 0.4);
             z-index: 2;
         }
 
-        /* [SECTION 1: Production] - 지그재그 그리드 (기존 스타일) */
+        /* [SECTION 1: Production] */
         .project-row {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
@@ -167,6 +165,8 @@
             position: relative;
             z-index: 1;
         }
+        .proj-img img { width: 100%; height: 100%; object-fit: cover; }
+
         .proj-desc {
             grid-column: 9 / -1;
             position: relative;
@@ -184,7 +184,7 @@
         }
         .proj-title { font-size: 2rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
         
-        /* [SECTION 2: Education] - 겹침 레이아웃 (새로운 섹션) */
+        /* [SECTION 2: Education] */
         .edu-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -194,10 +194,9 @@
         .edu-img {
             width: 90%;
             height: 600px;
-            background: #ccc; /* 강사 프로필 사진 */
+            background: #ccc;
             position: relative;
         }
-        /* 파란색 투명 오버레이 장식 */
         .edu-img::before {
             content: '';
             position: absolute;
@@ -210,7 +209,7 @@
             color: white;
             padding: 60px;
             margin-top: 100px;
-            margin-left: -100px; /* 이미지 위로 겹치기 */
+            margin-left: -100px;
             position: relative;
             z-index: 2;
             box-shadow: 30px 30px 0 rgba(0,0,0,0.1);
@@ -222,11 +221,11 @@
             align-items: baseline;
         }
         .curriculum-list li:last-child { border-bottom: none; }
-        .c-num { font-weight: 900; font-size: 1.2rem; color: var(--accent-pink); margin-right: 15px; } /* 핑크 숫자 */
+        .c-num { font-weight: 900; font-size: 1.2rem; color: var(--accent-pink); margin-right: 15px; min-width: 30px; }
         .c-title { font-size: 1.1rem; font-weight: 700; }
         .c-desc { display: block; font-size: 0.9rem; opacity: 0.7; margin-top: 5px; }
 
-        /* [SECTION 3: Social] - 기하학적 카드 (인스타 느낌) */
+        /* [SECTION 3: Social] */
         .social-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -241,20 +240,19 @@
             border: 1px solid transparent;
         }
         .social-card:hover {
-            background: white;
-            border-color: var(--primary-blue);
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(12, 47, 241, 0.1);
         }
         .phone-rect {
             width: 100%;
-            aspect-ratio: 9/16; /* 스마트폰 비율 */
+            aspect-ratio: 9/16;
             background: #333;
             margin-bottom: 20px;
             position: relative;
             overflow: hidden;
         }
-        /* 카드 위 핑크 라벨 */
+        .phone-rect img { width: 100%; height: 100%; object-fit: cover; }
+        
         .social-label {
             position: absolute;
             top: 0; left: 20px;
@@ -293,28 +291,103 @@
             font-size: 1.2rem;
             transition: 0.3s;
         }
-        .email-btn:hover { background: var(--accent-pink); color: white; }
 
         /* 장식 위치 */
         .p1 { top: 120px; left: 5%; }
         .p2 { top: 40%; right: 5%; color: var(--accent-pink); }
         .p3 { bottom: 200px; left: 10%; }
 
-        /* 모바일 대응 */
+        /* ========================================= */
+        /* [MOBILE OPTIMIZATION] - 반응형 미디어 쿼리 */
+        /* ========================================= */
         @media (max-width: 768px) {
-            .hero { grid-template-columns: 1fr; }
-            .hero-text h1 { font-size: 3.5rem; }
+            
+            /* 네비게이션: 간격 줄이기 */
+            header { padding: 20px 0; }
+            nav ul { gap: 15px; font-size: 0.8rem; }
+            
+            /* HERO: 1단 배열 & 텍스트 크기 조정 */
+            .hero { 
+                grid-template-columns: 1fr; 
+                gap: 40px; 
+                padding-bottom: 100px;
+                text-align: center; /* 모바일에선 중앙 정렬이 깔끔함 */
+            }
+            .hero-text h1 { font-size: 3rem; } /* 폰트 사이즈 축소 */
+            .hero-desc { 
+                margin: 0 auto 40px auto; /* 중앙 정렬 */
+                text-align: left; 
+                width: fit-content;
+            }
             .hero-img-box { height: 400px; }
             
-            .project-row, .project-row.reverse { display: flex; flex-direction: column; gap: 30px; }
-            .proj-img { width: 100%; height: 300px; }
-            .proj-desc { width: 100%; text-align: left !important; }
-            
+            /* 플로팅 박스: 화면 밖으로 나가지 않게 중앙 하단 배치 */
+            .floating-box {
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -30px;
+                width: 90%; /* 모바일 너비에 맞춤 */
+                text-align: left;
+            }
+
+            /* Common Titles */
+            .section-header { padding-top: 60px; margin-bottom: 40px; }
+            .section-num { font-size: 3.5rem; }
+            .section-title { font-size: 2.2rem; margin-top: -30px; }
+
+            /* Production: 지그재그 해제 -> 수직 나열 */
+            .project-row, .project-row.reverse {
+                display: flex;
+                flex-direction: column;
+                gap: 0; /* 이미지와 텍스트 사이 간격 제거 (박스 겹침 위해) */
+                margin-bottom: 80px;
+            }
+            .proj-img {
+                width: 100%;
+                height: 300px;
+                grid-column: auto; /* 그리드 해제 */
+            }
+            .proj-desc {
+                width: 100%;
+                grid-column: auto;
+                background: white;
+                padding: 30px 20px;
+                margin-top: -50px; /* 이미지 위로 살짝 올라오게 */
+                margin-left: 20px; /* 오른쪽으로 살짝 밀어서 디자인 느낌 유지 */
+                margin-right: 0; /* 모바일에서 오른쪽 여백 제거 */
+                box-shadow: -10px 10px 30px rgba(0,0,0,0.1); /* 그림자로 구분 */
+                text-align: left !important; /* 강제 왼쪽 정렬 */
+            }
+            /* 반대 방향(짝수) 아이템도 동일하게 처리 */
+            .project-row.reverse .proj-desc {
+                margin-left: 20px; 
+            }
+
+            /* Education: 수직 나열 및 겹침 조정 */
             .edu-grid { grid-template-columns: 1fr; }
-            .curriculum-box { margin: -50px 20px 0 20px; width: auto; padding: 30px; }
+            .edu-img { width: 100%; height: 350px; }
+            .curriculum-box {
+                margin: -50px 20px 0 20px; /* 이미지 하단에 걸치면서 양옆 여백 */
+                width: auto;
+                padding: 30px;
+            }
+
+            /* Social: 1단 그리드 */
+            .social-grid { 
+                grid-template-columns: 1fr; 
+                padding: 0 10px;
+            }
+            .social-card { transform: none !important; margin-bottom: 20px; } /* 리듬감 효과 제거 */
+            .phone-rect { aspect-ratio: 16/9; } /* 모바일에선 가로형이나 정사각형이 보기 편할 수 있음. 원하면 9/16 유지 가능 */
+
+            /* Footer */
+            footer { padding: 60px 20px; }
+            .footer-cta { font-size: 2.5rem; }
+            .email-btn { padding: 15px 30px; font-size: 1rem; width: 100%; }
             
-            .social-grid { grid-template-columns: 1fr; }
-            .phone-rect { aspect-ratio: 16/9; } /* 모바일에선 가로로 넓게 */
+            /* 장식 요소 위치 조정 (글자 가리지 않게) */
+            .p1 { left: 80%; top: 80px; }
+            .p2 { display: none; } /* 모바일에서 너무 복잡하면 숨김 */
         }
     </style>
 </head>
@@ -329,10 +402,9 @@
             <div class="logo">GARAM.</div>
             <nav>
                 <ul>
-                    <li><a href="#production">Production</a></li>
+                    <li><a href="#production">Prod.</a></li>
                     <li><a href="#class">Class</a></li>
                     <li><a href="#social">Social</a></li>
-                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </header>
@@ -368,15 +440,13 @@
 
             <div class="project-row">
                 <div class="proj-img">
-                    <img src="https://via.placeholder.com/800x500/dddddd/999999?text=Beauty+Ad" style="width:100%; height:100%; object-fit:cover;" alt="Beauty Ad">
-                    <div style="position:absolute; bottom:-20px; right:-20px; width:100px; height:100px; border:2px solid var(--accent-pink); z-index:-1;"></div>
+                    <img src="https://via.placeholder.com/800x500/dddddd/999999?text=Beauty+Ad" alt="Beauty Ad">
                 </div>
                 <div class="proj-desc">
                     <span class="proj-tag">Viral Video</span>
                     <h3 class="proj-title">Cosmetic Brand<br>Short-form</h3>
                     <p style="color:var(--text-sub); margin-bottom:20px;">
-                        제품의 제형과 발색을 강조한 15초 숏폼 광고.<br>
-                        빠른 템포의 편집으로 시청 지속 시간 극대화.
+                        제품의 제형과 발색을 강조한 15초 숏폼 광고.
                     </p>
                     <a href="#" style="border-bottom:2px solid var(--primary-blue); font-weight:700;">Watch Video →</a>
                 </div>
@@ -384,15 +454,13 @@
 
             <div class="project-row reverse">
                 <div class="proj-img">
-                    <img src="https://via.placeholder.com/800x500/dddddd/999999?text=Food+Ad" style="width:100%; height:100%; object-fit:cover;" alt="Food Ad">
-                    <div style="position:absolute; top:-20px; left:-20px; width:100px; height:100px; background:var(--primary-blue); z-index:-1;"></div>
+                    <img src="https://via.placeholder.com/800x500/dddddd/999999?text=Food+Ad" alt="Food Ad">
                 </div>
                 <div class="proj-desc">
                     <span class="proj-tag">Commercial</span>
                     <h3 class="proj-title">Local Cafe<br>Brand Film</h3>
                     <p style="color:var(--text-sub); margin-bottom:20px;">
-                        공간의 분위기와 사운드를 살린 감성 광고.<br>
-                        소규모 브랜드의 예산에 맞춘 고퀄리티 연출.
+                        공간의 분위기와 사운드를 살린 감성 광고.
                     </p>
                     <a href="#" style="border-bottom:2px solid var(--accent-pink); font-weight:700;">Watch Video →</a>
                 </div>
@@ -413,7 +481,7 @@
                     <h3 style="font-size:2rem; font-weight:800; margin-bottom:20px;">Practical Class</h3>
                     <p style="margin-bottom:30px; opacity:0.9;">
                         이론보다 실무. 초보자도 하루 만에 결과물을 만드는<br>
-                        이가람만의 '치트키' 커리큘럼을 소개합니다.
+                        이가람만의 '치트키' 커리큘럼.
                     </p>
                     <ul class="curriculum-list">
                         <li>
@@ -452,17 +520,18 @@
                 <div class="social-card">
                     <div class="social-label">Contents Planning</div>
                     <div class="phone-rect">
-                        <img src="https://via.placeholder.com/300x500/eeeeee/999999?text=Feed+Design" style="width:100%; height:100%; object-fit:cover;">
+                        <img src="https://via.placeholder.com/300x500/eeeeee/999999?text=Feed+Design">
                     </div>
                     <div class="stat-box">
-                        <span class="stat-text">Feed Tone & Manner</span>
+                        <span class="stat-text">Feed Tone</span>
                         <span class="stat-num">Branding</span>
                     </div>
                 </div>
 
-                <div class="social-card" style="transform: translateY(30px);"> <div class="social-label" style="background:var(--primary-blue);">Reels Production</div>
+                <div class="social-card">
+                    <div class="social-label" style="background:var(--primary-blue);">Reels Production</div>
                     <div class="phone-rect">
-                        <img src="https://via.placeholder.com/300x500/eeeeee/999999?text=Viral+Reels" style="width:100%; height:100%; object-fit:cover;">
+                        <img src="https://via.placeholder.com/300x500/eeeeee/999999?text=Viral+Reels">
                     </div>
                     <div class="stat-box">
                         <span class="stat-text">Avg. Views</span>
@@ -473,10 +542,10 @@
                 <div class="social-card">
                     <div class="social-label">Account Growth</div>
                     <div class="phone-rect">
-                        <img src="https://via.placeholder.com/300x500/eeeeee/999999?text=Analytics" style="width:100%; height:100%; object-fit:cover;">
+                        <img src="https://via.placeholder.com/300x500/eeeeee/999999?text=Analytics">
                     </div>
                     <div class="stat-box">
-                        <span class="stat-text">Follower Growth</span>
+                        <span class="stat-text">Growth</span>
                         <span class="stat-num">x 250%</span>
                     </div>
                 </div>
